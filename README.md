@@ -6,10 +6,11 @@
 
 ```
 my-tools/
-├── remote-desktop/          # 远程桌面相关
-│   └── tailscale-rdp.md     # Tailscale + 远程桌面配置教程
-├── proxy/                   # 代理相关
-│   └── clash-tailscale.md   # Clash 与 Tailscale 兼容配置
+├── remote-desktop/                    # 远程桌面相关
+│   ├── tailscale-rdp.md              # Tailscale + 远程桌面配置教程
+│   └── windows-user-migration.md     # Windows 用户文件迁移方案
+├── proxy/                             # 代理相关
+│   └── clash-tailscale.md            # Clash 与 Tailscale 兼容配置
 └── README.md
 ```
 
@@ -18,6 +19,7 @@ my-tools/
 | 工具 | 说明 | 文档 |
 |------|------|------|
 | Tailscale + RDP | Mac 远程控制 Windows | [教程](remote-desktop/tailscale-rdp.md) |
+| 用户文件迁移 | Windows 多账户文件同步 | [方案](remote-desktop/windows-user-migration.md) |
 | Clash + Tailscale | 代理与 Tailscale 共存 | [配置](proxy/clash-tailscale.md) |
 
 ## 环境
