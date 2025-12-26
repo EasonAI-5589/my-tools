@@ -6,6 +6,8 @@
 
 ```
 my-tools/
+├── claude-tools/                      # Claude AI 相关工具
+│   └── claude-usage-tracker.md       # 🔋 Mac 状态栏显示 Claude 用量
 ├── remote-desktop/                    # 远程桌面相关
 │   ├── tailscale-rdp.md              # Tailscale + 远程桌面配置教程
 │   └── windows-user-migration.md     # Windows 用户文件迁移方案
@@ -23,6 +25,7 @@ my-tools/
 
 | 工具 | 说明 | 文档 |
 |------|------|------|
+| **Claude Usage Tracker** | Mac 状态栏显示 Claude 用量 | [🔋 配置](claude-tools/claude-usage-tracker.md) |
 | **网络总览** | 国内/新加坡双方案 | [📋 总览](proxy/network-overview.md) |
 | Tailscale + RDP | Mac 远程控制 Windows | [教程](remote-desktop/tailscale-rdp.md) |
 | 用户文件迁移 | Windows 多账户文件同步 | [方案](remote-desktop/windows-user-migration.md) |
