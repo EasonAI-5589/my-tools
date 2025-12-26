@@ -1,0 +1,44 @@
+# Profile Enhancement Rules Template for Clash Verge
+# 备份位置: ~/my-tools/proxy/clash-config/rules.yaml
+
+prepend:
+  # ============================================
+  # Tailscale - 远程连接家里主机
+  # ============================================
+  - IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,tailscale.com,DIRECT
+  - DOMAIN-SUFFIX,tailscale.io,DIRECT
+
+  # ============================================
+  # OpenVPN - 亦庄显卡集群
+  # 服务器: ssl-vpn.x-humanoid-cloud.com
+  # 内网段: 10.51.0.0/16
+  # ============================================
+  - IP-CIDR,10.51.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,180.76.235.174/32,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,x-humanoid-cloud.com,DIRECT
+
+  # ============================================
+  # 飞连 - 字节显卡集群
+  # ============================================
+  - DOMAIN-SUFFIX,bytedance.net,DIRECT
+  - DOMAIN-SUFFIX,byted.org,DIRECT
+  - DOMAIN-SUFFIX,feishu.cn,DIRECT
+  - DOMAIN-SUFFIX,volcengine.com,DIRECT
+
+  # ============================================
+  # 奇安信零信任 - 上庄显卡集群
+  # ============================================
+  - DOMAIN-SUFFIX,qianxin.com,DIRECT
+  - DOMAIN-SUFFIX,qi-anxin.com,DIRECT
+  - DOMAIN-KEYWORD,qianxin,DIRECT
+
+  # ============================================
+  # 其他直连
+  # ============================================
+  - DOMAIN-SUFFIX,happy.engineering,DIRECT
+  - DOMAIN-SUFFIX,cluster-fluster.com,DIRECT
+
+append: []
+
+delete: []

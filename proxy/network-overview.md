@@ -40,11 +40,11 @@
 
 ### VPN 服务
 
-| 服务 | 用途 | 服务器 | 内网 IP 段 |
-|------|------|--------|-----------|
-| **OpenVPN** | 亦庄显卡集群 | ssl-vpn.x-humanoid-cloud.com | 10.51.0.0/16 |
-| **奇安信零信任** | 上庄显卡集群 | - | 待配置 |
-| **飞连** | 字节显卡集群 | - | 待配置 |
+| 服务 | 用途 | 服务器/域名 | 状态 |
+|------|------|-------------|------|
+| **OpenVPN** | 亦庄显卡集群 | ssl-vpn.x-humanoid-cloud.com | ✅ 已配置 |
+| **奇安信零信任** | 上庄显卡集群 | *.qianxin.com | ✅ 已配置 |
+| **飞连** | 字节显卡集群 | *.bytedance.net, *.byted.org | ✅ 已配置 |
 
 ### 远程连接
 
@@ -113,27 +113,30 @@
 
 ## Clash Verge 直连规则
 
-确保所有 VPN 流量绑过 Clash：
+确保所有 VPN 流量绑过 Clash（配置备份：[clash-config/](clash-config/)）：
 
 ```yaml
 prepend:
-  # Tailscale 直连
+  # Tailscale - 远程连接家里主机
   - IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
   - DOMAIN-SUFFIX,tailscale.com,DIRECT
   - DOMAIN-SUFFIX,tailscale.io,DIRECT
 
-  # OpenVPN (亦庄显卡) 直连
+  # OpenVPN - 亦庄显卡集群
   - IP-CIDR,10.51.0.0/16,DIRECT,no-resolve
   - IP-CIDR,180.76.235.174/32,DIRECT,no-resolve
   - DOMAIN-SUFFIX,x-humanoid-cloud.com,DIRECT
 
-  # 奇安信零信任 (上庄显卡) 直连 - 待补充
-  # - IP-CIDR,x.x.x.x/x,DIRECT,no-resolve
-  # - DOMAIN-SUFFIX,qianxin.com,DIRECT
+  # 飞连 - 字节显卡集群
+  - DOMAIN-SUFFIX,bytedance.net,DIRECT
+  - DOMAIN-SUFFIX,byted.org,DIRECT
+  - DOMAIN-SUFFIX,feishu.cn,DIRECT
+  - DOMAIN-SUFFIX,volcengine.com,DIRECT
 
-  # 飞连 (字节显卡) 直连 - 待补充
-  # - IP-CIDR,x.x.x.x/x,DIRECT,no-resolve
-  # - DOMAIN-SUFFIX,feilian.xxx,DIRECT
+  # 奇安信零信任 - 上庄显卡集群
+  - DOMAIN-SUFFIX,qianxin.com,DIRECT
+  - DOMAIN-SUFFIX,qi-anxin.com,DIRECT
+  - DOMAIN-KEYWORD,qianxin,DIRECT
 ```
 
 ---
@@ -165,26 +168,6 @@ system_proxy_bypass: localhost,127.*,10.*,100.*,172.16.*,172.17.*,172.18.*,172.1
 1. **开启 Clash Verge**
 2. **选择合适的节点**（新加坡/香港/美国等）
 3. **确认 VPN 直连规则生效**
-
----
-
-## 待配置项
-
-### 奇安信零信任
-
-连接上庄显卡时，需要补充：
-- [ ] 服务器地址
-- [ ] 内网 IP 段
-- [ ] 添加 Clash 直连规则
-
-### 飞连
-
-连接字节显卡时，需要补充：
-- [ ] 服务器地址
-- [ ] 内网 IP 段
-- [ ] 添加 Clash 直连规则
-
-**获取方式**：连接 VPN 后运行 `ifconfig` 或 `netstat -rn` 查看分配的 IP 和路由。
 
 ---
 

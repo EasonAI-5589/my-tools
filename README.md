@@ -12,7 +12,10 @@ my-tools/
 ├── proxy/                             # 代理/VPN 相关
 │   ├── network-overview.md           # 🌐 网络配置总览（国内/新加坡双方案）
 │   ├── clash-tailscale.md            # Clash 与 Tailscale 兼容配置
-│   └── clash-openvpn.md              # Clash 与 OpenVPN 兼容配置
+│   ├── clash-openvpn.md              # Clash 与 OpenVPN 兼容配置
+│   └── clash-config/                 # 📦 Clash 配置备份
+│       ├── rules.yaml                # 直连规则
+│       └── verge.yaml                # Verge 主配置
 └── README.md
 ```
 
